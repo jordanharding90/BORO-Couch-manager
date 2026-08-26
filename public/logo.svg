@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g>
+    <circle cx="300" cy="200" r="120" fill="#b8860b" />
+    <text x="300" y="210" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#8b0000" text-anchor="middle">Middlesbrough FC</text>
+    <text x="300" y="240" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#8b0000" text-anchor="middle">150 Year Gold Logo</text>
+  </g>
+  <rect x="100" y="360" width="400" height="120" fill="#d00000" rx="12"/>
+  <text x="300" y="430" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#fff" text-anchor="middle">Replace this file with the official</text>
+  <text x="300" y="460" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#fff" text-anchor="middle">Middlesbrough 150yr gold logo at /public/logo.svg</text>
+</svg>
