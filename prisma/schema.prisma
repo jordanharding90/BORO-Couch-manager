@@ -1,0 +1,94 @@
+// Prisma schema for BORO Couch Manager
+// Run `npx prisma migrate dev --name add_bench_to_selection` after setting DATABASE_URL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int        @id @default(autoincrement())
+  name          String?
+  email         String     @unique
+  password      String?
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  selections    Selection[]
+  predictions   Prediction[]
+  pointsLogs    PointsLog[]
+  resets        PasswordReset[]
+}
+
+model PasswordReset {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Player {
+  id          Int     @id @default(autoincrement())
+  apiPlayerId String? @unique
+  name        String
+  position    String
+  rating      Float   @default(0)
+  injuryStatus String?
+  club        String?
+  image       String?
+  lastUpdated DateTime?
+}
+
+model Fixture {
+  id           Int     @id @default(autoincrement())
+  apiFixtureId String? @unique
+  season       String
+  competition  String?
+  homeTeam     String
+  awayTeam     String
+  kickoff      DateTime
+  status       String?
+  scoreHome    Int?
+  scoreAway    Int?
+}
+
+model Selection {
+  id         Int    @id @default(autoincrement())
+  user       User   @relation(fields: [userId], references: [id])
+  userId     Int
+  fixtureId  Int
+  formation  String
+  starting11 Json
+  bench      Json
+  createdAt  DateTime @default(now())
+}
+
+model Prediction {
+  id             Int    @id @default(autoincrement())
+  user           User   @relation(fields: [userId], references: [id])
+  userId         Int
+  fixtureId      Int
+  predictedHome  Int
+  predictedAway  Int
+  predictedScorers Json
+  createdAt      DateTime @default(now())
+}
+
+model PointsLog {
+  id         Int    @id @default(autoincrement())
+  user       User   @relation(fields: [userId], references: [id])
+  userId     Int
+  fixtureId  Int
+  points     Int
+  breakdown  Json
+  createdAt  DateTime @default(now())
+}
