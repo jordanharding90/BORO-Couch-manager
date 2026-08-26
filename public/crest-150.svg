@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#f0d27a"/>
+      <stop offset="1" stop-color="#b8860b"/>
+    </linearGradient>
+    <style>
+      .title { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; }
+      .subtitle { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- outer ring -->
+  <circle cx="300" cy="230" r="160" fill="#8b0000" />
+  <circle cx="300" cy="230" r="140" fill="url(#g)" />
+
+  <!-- inner shield -->
+  <path d="M200 260 Q 230 120 300 120 Q 370 120 400 260 L 300 420 Z" fill="#ffffff" />
+
+  <!-- central M symbol -->
+  <g transform="translate(260,170)">
+    <rect x="0" y="0" width="80" height="70" rx="8" fill="#8b0000" />
+    <text x="40" y="46" text-anchor="middle" font-size="42" fill="#ffffff" class="title">MFC</text>
+  </g>
+
+  <!-- gold banner -->
+  <rect x="120" y="360" width="360" height="70" rx="8" fill="url(#g)" />
+  <text x="300" y="405" text-anchor="middle" font-size="20" fill="#8b0000" class="subtitle">150 Year Anniversary</text>
+
+  <!-- club text -->
+  <text x="300" y="110" text-anchor="middle" font-size="28" fill="#ffffff" class="title">Middlesbrough Football Club</text>
+
+  <!-- footer guidance (can be removed when replaced with official crest) -->
+  <text x="300" y="540" text-anchor="middle" font-size="12" fill="#777777">Official use: Replace with club-provided artwork when available</text>
+</svg>
